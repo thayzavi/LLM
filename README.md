@@ -25,5 +25,5 @@ Este projeto é um backend que usa um modelo de linguagem (LLM) para responder p
 POST `/atendimento`
 ```json
 {
-  "pergunta": "Quais produtod vocês tem ?"
+  "pergunta": "Quais tipos de marca vocês tem?"
 }
