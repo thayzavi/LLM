@@ -11,11 +11,11 @@ app.post('/atendimento', async (req, res) => {
     try{
         const resposta = await axios.post(
             'https://openrouter.ai/api/v1/chat/completions', {
-                model: "google/gemma-3n-e4b-it:free",
+                model: "mistralai/mistral-7b-instruct:free",
                 messages: [
                     {
                         role: "system",
-                        content: "Você e um atendente virtual de uma loja. Responda dúvidas dos clientes sobre produtos, horários de funcionamento, formas de pagamento e localização de forma clara e educada "
+                        content: "Você é um assistente de suporte técnico. Ajuda o usuário a resolver problemas com tecnologia de forma clara e prática. Seja paciente e explique os passos."
                     },
                     {
                         role: "user",
