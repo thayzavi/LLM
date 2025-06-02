@@ -1,6 +1,6 @@
-# Assistente virtual de uma loja
+# Assistente virtual 
 
-Este projeto é um backend que usa um modelo de linguagem (LLM) para responder perguntas sobre um atendende virtual sobre tecnologoa.
+Este projeto é um backend que usa um modelo de linguagem (LLM) para responder perguntas sobre um atendende virtual.
 
 ## Funcionalidade
 
