@@ -23,8 +23,8 @@ app.post('/atendimento', async (req, res) => {
         },
       }
     );
-        const respostaTexto = resposta.data.choices[0].message.content;
-        res.json({resposta: respostaTexto });
+      const respostaTexto = resposta.data[0]?.generated_text || 'Nenhuma resposta gerada.';
+        res.json({ resposta: respostaTexto });
     } catch (erro){
         console.error(erro.response?.data || erro.message);
         res.status(500).json({erro:"Erro ao consulta o modelo."});
