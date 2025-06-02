@@ -5,31 +5,24 @@ require('dotenv').config();
 const app = express();
 app.use(express.json());
 
+const modelId = 'HuggingFaceH4/zephyr-7b-beta';
+
 app.post('/atendimento', async (req, res) => {
      const {pergunta} = req.body;
 
-    try{
-        const resposta = await axios.post(
-            'https://openrouter.ai/api/v1/chat/completions', {
-                model: "mistralai/mistral-7b-instruct:free",
-                messages: [
-                    {
-                        role: "system",
-                        content: "Você é um assistente de suporte técnico. Ajuda o usuário a resolver problemas com tecnologia de forma clara e prática. Seja paciente e explique os passos."
-                    },
-                    {
-                        role: "user",
-                        content: pergunta
-                    }
-                ]
-            },
-            {
-                headers:{
-                    Authorization: `Bearer ${process.env.OPENROUTER_API_KEY}`,
-                    'Content-Type': 'application/json'
-                }
-            }
-        );
+    try {
+    const resposta = await axios.post(
+      `https://api-inference.huggingface.co/models/${modelId}`,
+      {
+        inputs: `Usuário: ${pergunta}\nAssistente:`,
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${process.env.HF_API_KEY}`,
+          'Content-Type': 'application/json',
+        },
+      }
+    );
         const respostaTexto = resposta.data.choices[0].message.content;
         res.json({resposta: respostaTexto });
     } catch (erro){
