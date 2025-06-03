@@ -23,9 +23,11 @@ Este projeto é um backend que usa um modelo de linguagem (LLM) para responder p
 
 ## Exemplo de uso
 ```
-POST `/atendimento`
-json
+POST http://localhost:3000/atendimento
+Content-Type: application/json
+
 {
-  "pergunta": "Quais tipos de PC vocês tem?"
+  "pergunta": "Quais tipos de PC vocês têm?"
 }
+
 ```
