@@ -19,7 +19,7 @@ Este projeto é um backend que usa um modelo de linguagem (LLM) para responder p
 2. Instale as dependências com `npm install`
 3. Crie um arquivo `.env` com sua chave de API do  Hugging Face 
 4. HF_API_KEY=suaChave
-5. Inicie com `node index.js`
+5. Inicie com `node server.js`
 ```
 
 ## Exemplo de uso
